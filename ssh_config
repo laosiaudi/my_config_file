@@ -1,0 +1,17 @@
+Host github.com
+User username
+Port 443
+Hostname ssh.github.com
+identityfile ~/.ssh/id_rsa
+
+
+Host aws
+User ubuntu
+Hostname server_ip
+IdentityFile /home/username/awskey.pem
+ProxyCommand /usr/bin/connect -S proxyserver:port %h %p
+
+/*change the file name to config under .ssh directory
+  scp via proxy:
+  scp -i pemfile -o "ProxyCommand=/user/bin/connect -S proxyserver:port %h %p" -r folder username@remoteserverIP:~/path
+*/
